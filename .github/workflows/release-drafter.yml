@@ -1,0 +1,19 @@
+name: Release Drafter
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  release-drafter:
+    uses: typisttech/.github/.github/workflows/release-drafter.yml@872d5345c254c6f8d65f318e5bffa74d7d0192e2 # v5.0.1

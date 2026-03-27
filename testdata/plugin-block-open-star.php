@@ -1,0 +1,5 @@
+<?php
+
+/* Plugin Name: Block Open Star
+ * Version: 2.1
+ */

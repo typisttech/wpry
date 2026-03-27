@@ -1,0 +1,9 @@
+! exec wpry style.css
+
+cmp stdout out.golden
+! stderr .
+
+-- style.css --
+
+-- out.golden --
+{"error":"no header found"}

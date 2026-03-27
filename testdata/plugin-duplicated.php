@@ -1,0 +1,7 @@
+<?php
+
+/*
+ * Plugin Name: Duplicated
+ * Version:     1.2.3
+ * Version:     9.8.7
+ */

@@ -1,0 +1,34 @@
+exec wpry dir
+
+cmp stdout out.golden
+! stderr .
+
+-- dir/plugin.php --
+<?php
+/*
+Plugin Name: Full Plugin
+Plugin URI: https://example.com/full-plugin
+Description: A fully specified plugin.
+Version: 2.0.0
+Requires at least: 6.0
+Requires PHP: 8.0
+Author: Full Author
+Author URI: https://example.com/author
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Update URI: https://example.com/update
+Text Domain: full-plugin
+Domain Path: /lang
+Requires Plugins: woocommerce, akismet
+Network: true
+*/
+
+-- dir/readme.txt --
+I am readme.txt
+
+-- dir/index.php --
+<?php
+// Silence is golden.
+
+-- out.golden --
+{"file":"plugin.php","plugin":{"name":"Full Plugin","uri":"https://example.com/full-plugin","description":"A fully specified plugin.","version":"2.0.0","requires_wp":"6.0","requires_php":"8.0","author":"Full Author","author_uri":"https://example.com/author","license":"GPL-2.0-or-later","license_uri":"https://www.gnu.org/licenses/gpl-2.0.html","update_uri":"https://example.com/update","text_domain":"full-plugin","domain_path":"/lang","requires_plugins":"woocommerce, akismet","network":"true"}}

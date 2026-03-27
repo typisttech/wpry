@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+# CR-only test fixtures: no line ending conversion
+testdata/plugin-cr-only.php -text
+testdata/theme-cr-only.css -text
+
+# CRLF test fixtures: enforce CRLF line endings
+testdata/plugin-crlf.php text eol=crlf
+testdata/theme-crlf.css text eol=crlf

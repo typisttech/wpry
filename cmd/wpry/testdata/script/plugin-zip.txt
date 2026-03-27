@@ -1,0 +1,18 @@
+exec zip -r plugin.zip plugin.php
+exec wpry plugin.zip
+
+cmp stdout out.golden
+! stderr .
+
+-- plugin.php --
+<?php
+/*
+Plugin Name: Full Plugin
+Plugin URI: https://example.com/full-plugin
+Description: A fully specified plugin.
+Version: 2.0.0
+Author: Full Author
+*/
+
+-- out.golden --
+{"file":"plugin.php","plugin":{"name":"Full Plugin","uri":"https://example.com/full-plugin","description":"A fully specified plugin.","version":"2.0.0","author":"Full Author"}}

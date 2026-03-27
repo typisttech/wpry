@@ -1,0 +1,16 @@
+exec zip -r theme.zip style.css
+exec wpry theme.zip
+
+cmp stdout out.golden
+! stderr .
+
+-- style.css --
+/*
+Theme Name: Full Theme
+Description: A full theme.
+Version: 1.0.0
+Author: Theme Author
+*/
+
+-- out.golden --
+{"file":"style.css","theme":{"name":"Full Theme","author":"Theme Author","description":"A full theme.","version":"1.0.0"}}

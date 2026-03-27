@@ -1,0 +1,7 @@
+! exec wpry not-found.php
+
+cmp stdout out.golden
+! stderr .
+
+-- out.golden --
+{"error":"stat not-found.php: no such file or directory"}

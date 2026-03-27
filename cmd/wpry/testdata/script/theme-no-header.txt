@@ -1,0 +1,12 @@
+! exec wpry style.css
+
+cmp stdout out.golden
+! stderr .
+
+-- style.css --
+/*
+ * Some CSS file without a valid theme header
+ */
+
+-- out.golden --
+{"error":"no header found"}
