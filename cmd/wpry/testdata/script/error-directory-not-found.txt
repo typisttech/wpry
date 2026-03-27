@@ -1,0 +1,7 @@
+! exec wpry not-found/
+
+cmp stdout out.golden
+! stderr .
+
+-- out.golden --
+{"error":"stat not-found/: no such file or directory"}

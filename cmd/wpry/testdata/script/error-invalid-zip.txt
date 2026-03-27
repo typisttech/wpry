@@ -1,0 +1,10 @@
+! exec wpry invalid.zip
+
+cmp stdout out.golden
+! stderr .
+
+-- invalid.zip --
+this is not a zip file
+
+-- out.golden --
+{"error":"invalid zip: zip: not a valid zip file"}

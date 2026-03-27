@@ -1,0 +1,13 @@
+root = true
+
+[testdata/plugin-cr-only.php]
+end_of_line = cr
+
+[testdata/theme-cr-only.css]
+end_of_line = cr
+
+[testdata/plugin-crlf.php]
+end_of_line = crlf
+
+[testdata/theme-crlf.css]
+end_of_line = crlf

@@ -1,0 +1,13 @@
+! exec wpry no-header.php
+
+cmp stdout out.golden
+! stderr .
+
+-- no-header.php --
+<?php
+/*
+ * Some PHP file without a valid plugin header
+ */
+
+-- out.golden --
+{"error":"no header found"}

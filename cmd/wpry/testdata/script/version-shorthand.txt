@@ -1,0 +1,4 @@
+exec wpry -v
+
+! stdout .
+stderr 'Built with'

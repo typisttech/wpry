@@ -1,0 +1,9 @@
+! exec wpry plugin-empty.php
+
+cmp stdout out.golden
+! stderr .
+
+-- plugin-empty.php --
+
+-- out.golden --
+{"error":"no header found"}

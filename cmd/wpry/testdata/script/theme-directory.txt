@@ -1,0 +1,38 @@
+exec wpry dir
+
+cmp stdout out.golden
+! stderr .
+
+-- dir/style.css --
+/*
+Theme Name: Full Theme
+Theme URI: https://example.com/full-theme
+Description: A fully specified theme.
+Version: 3.0.0
+Requires at least: 6.0
+Requires PHP: 8.0
+Author: Full Author
+Author URI: https://example.com/author
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: full-theme
+Domain Path: /lang
+Tested up to: 6.5
+Tags: custom-background, custom-logo
+Template: twentytwentyfive
+*/
+
+-- dir/another.css --
+/*
+Theme Name: Another Theme
+*/
+
+-- dir/readme.txt --
+I am readme.txt
+
+-- dir/index.php --
+<?php
+// Silence is golden.
+
+-- out.golden --
+{"path":"style.css","theme":{"name":"Full Theme","uri":"https://example.com/full-theme","author":"Full Author","author_uri":"https://example.com/author","description":"A fully specified theme.","version":"3.0.0","requires_wp":"6.0","tested_up_to":"6.5","requires_php":"8.0","license":"GPL-2.0-or-later","license_uri":"https://www.gnu.org/licenses/gpl-2.0.html","text_domain":"full-theme","domain_path":"/lang","tags":"custom-background, custom-logo","template":"twentytwentyfive"}}

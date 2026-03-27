@@ -1,0 +1,9 @@
+exec mkdir empty-dir
+
+! exec wpry empty-dir/
+
+cmp stdout out.golden
+! stderr .
+
+-- out.golden --
+{"error":"no header found"}
