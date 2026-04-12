@@ -60,7 +60,15 @@ homebrew_casks:
     homepage: https://github.com/typisttech/wpry
     description: |-
       Parses WordPress plugin and theme headers.
-    skip_upload: false
+    skip_upload: auto
+    repository:
+      owner: typisttech
+      name: homebrew-tap
+      branch: tastendruck/wpry
+      token: "{{ .Env.GORELEASER_HOMEBREW_GITHUB_TOKEN }}"
+      pull_request:
+        base:
+          branch: main
 
 checksum:
   name_template: "checksums.txt"

@@ -5,15 +5,15 @@ on:
     tags:
       - "v*"
 
-permissions:
-  contents: write
-  # packages: write
-  # issues: write
-  # id-token: write
-
 jobs:
   goreleaser:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      # For actions/attest
+      id-token: write
+      attestations: write
+      artifact-metadata: write
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -23,23 +23,29 @@ jobs:
         with:
           go-version: stable
 
-      # More assembly might be required: Docker logins, GPG, etc.
-      # It all depends on your needs.
-      - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@ec59f474b9834571250b370d4735c50f8e2d1e29 # v7.0.0
+      - uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+        id: app-token
         with:
-          # 'latest', 'nightly', or a semver
+          client-id: ${{ vars.TASTENDRUCK_CLIENT_ID }}
+          private-key: ${{ secrets.TASTENDRUCK_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+
+      - uses: goreleaser/goreleaser-action@ec59f474b9834571250b370d4735c50f8e2d1e29 # v7.0.0
+        with:
           version: "~> v2"
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GORELEASER_HOMEBREW_GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
-      - uses: typisttech/create-auto-merged-pull-request-action@05e85fff478e9ff9dfbb4b6d95622b6a8ebafe78 # v0.2.0
+      - uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4.1.0
         with:
-          branch: tastendruck/wpry/${{ github.ref_name }}
-          title: ":robot: Update `wpry` to ${{ github.ref_name }}"
-          labels: |
-            wpry
-            tastendruck
-          client-id: ${{ vars.TASTENDRUCK_CLIENT_ID }}
-          private-key: ${{ secrets.TASTENDRUCK_PRIVATE_KEY }}
+          subject-checksums: ./dist/checksums.txt
+
+  release-drafter:
+    uses: typisttech/.github/.github/workflows/release-drafter.yml@872d5345c254c6f8d65f318e5bffa74d7d0192e2 # v5.0.1
+    needs: goreleaser
+    permissions:
+      contents: write
+      pull-requests: read
