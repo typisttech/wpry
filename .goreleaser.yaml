@@ -76,5 +76,9 @@ checksum:
 changelog:
   disable: true
 
+release:
+  draft: true
+  use_existing_draft: true
+
 metadata:
   mod_timestamp: "{{ .CommitTimestamp }}"
