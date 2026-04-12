@@ -46,7 +46,7 @@ homebrew_casks:
   - name: wpry
     homepage: https://github.com/typisttech/wpry
     description: |-
-      Parses WordPress plugin and theme headers.
+      Parses WordPress plugin and theme headers
     repository:
       owner: typisttech
       name: homebrew-tap
