@@ -23,10 +23,6 @@ builds:
 
 gomod:
   proxy: true
-  env:
-    - GOPROXY=https://proxy.golang.org,direct
-    - GOSUMDB=sum.golang.org
-  mod: readonly
 
 nfpms:
   - vendor: Typist Tech Limited
@@ -35,15 +31,6 @@ nfpms:
     formats:
       - apk
       - deb
-    contents:
-      - src: ./LICENSE
-        dst: /usr/share/doc/{{ .ProjectName }}/copyright
-        file_info:
-          mode: 0644
-      - src: ./README.md
-        dst: /usr/share/doc/{{ .ProjectName }}/README.md
-        file_info:
-          mode: 0644
     mtime: "{{ .CommitDate }}"
 
 archives:
@@ -60,13 +47,13 @@ homebrew_casks:
     homepage: https://github.com/typisttech/wpry
     description: |-
       Parses WordPress plugin and theme headers.
-    skip_upload: auto
     repository:
       owner: typisttech
       name: homebrew-tap
       branch: tastendruck/wpry
       token: "{{ .Env.GORELEASER_HOMEBREW_GITHUB_TOKEN }}"
       pull_request:
+        enabled: true
         base:
           branch: main
 
