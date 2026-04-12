@@ -61,5 +61,5 @@ jobs:
       - uses: cloudsmith-io/cloudsmith-cli-action@18665afcce9f859312b61989671af9af7402e4fb # v2.0.2
         with:
           api-key: ${{ secrets.CLOUDSMITH_API_KEY_TASTENDRUCK }}
-      - run: cloudsmith push deb typisttech/oss/any-distro/any-version 'dist/*.deb'
-      - run: cloudsmith push deb typisttech/oss/any-distro/any-version 'dist/*.apk'
+      - run: cloudsmith push deb typisttech/oss/any-distro/any-version ./dist/*.deb
+      - run: cloudsmith push deb typisttech/oss/any-distro/any-version ./dist/*.apk
