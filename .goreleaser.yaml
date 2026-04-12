@@ -47,6 +47,12 @@ homebrew_casks:
     homepage: https://github.com/typisttech/wpry
     description: |-
       Parses WordPress plugin and theme headers
+    hooks:
+      post:
+        install: |
+          if OS.mac?
+            system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/wpry"]
+          end
     repository:
       owner: typisttech
       name: homebrew-tap
