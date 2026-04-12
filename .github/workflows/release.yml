@@ -33,3 +33,13 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: typisttech/create-auto-merged-pull-request-action@05e85fff478e9ff9dfbb4b6d95622b6a8ebafe78 # v0.2.0
+        with:
+          branch: tastendruck/wpry/${{ github.ref_name }}
+          title: ":robot: Update `wpry` to ${{ github.ref_name }}"
+          labels: |
+            wpry
+            tastendruck
+          client-id: ${{ vars.TASTENDRUCK_CLIENT_ID }}
+          private-key: ${{ secrets.TASTENDRUCK_PRIVATE_KEY }}
