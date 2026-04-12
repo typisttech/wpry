@@ -18,10 +18,10 @@ permissions:
 
 jobs:
   actions:
-    uses: typisttech/.github/.github/workflows/lint-actions.yml@6187a0d63e5c2b66925803ffe9c4a0fa1994a243 # v5.0.0
+    uses: typisttech/.github/.github/workflows/lint-actions.yml@872d5345c254c6f8d65f318e5bffa74d7d0192e2 # v5.0.1
 
   go:
-    uses: typisttech/.github/.github/workflows/lint-go.yml@6187a0d63e5c2b66925803ffe9c4a0fa1994a243 # v5.0.0
+    uses: typisttech/.github/.github/workflows/lint-go.yml@872d5345c254c6f8d65f318e5bffa74d7d0192e2 # v5.0.1
     with:
       golangci-lint: true
       golangci-lint-version: v2.11 # Must be kept in sync with @../../mise.toml
