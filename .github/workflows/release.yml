@@ -28,6 +28,8 @@ jobs:
         with:
           client-id: ${{ vars.TASTENDRUCK_CLIENT_ID }}
           private-key: ${{ secrets.TASTENDRUCK_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: homebrew-tap
           permission-contents: write
           permission-pull-requests: write
 
