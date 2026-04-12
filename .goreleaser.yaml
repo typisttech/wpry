@@ -65,5 +65,8 @@ homebrew_casks:
 checksum:
   name_template: "checksums.txt"
 
+changelog:
+  disable: true
+
 metadata:
   mod_timestamp: "{{ .CommitTimestamp }}"
