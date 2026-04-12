@@ -64,7 +64,7 @@ jobs:
       - run: echo "VERSION=${TAG#v}" >> "$GITHUB_ENV"
         env:
           TAG: ${{ github.ref_name }}
-      - run: cloudsmith push deb typisttech/oss/any-distro/any-version "./dist/wpry_${VERSION}_linux_amd64.deb"
-      - run: cloudsmith push deb typisttech/oss/any-distro/any-version "./dist/wpry_${VERSION}_linux_arm64.deb"
-      - run: cloudsmith push apk typisttech/oss/alpine/any-version "./dist/wpry_${VERSION}_linux_amd64.apk"
-      - run: cloudsmith push apk typisttech/oss/alpine/any-version "./dist/wpry_${VERSION}_linux_arm64.apk"
+      - run: cloudsmith push deb typisttech/oss/any-distro/any-version "dist/wpry_${VERSION}_linux_amd64.deb"
+      - run: cloudsmith push deb typisttech/oss/any-distro/any-version "dist/wpry_${VERSION}_linux_arm64.deb"
+      - run: cloudsmith push alpine typisttech/oss/alpine/any-version "dist/wpry_${VERSION}_linux_amd64.apk"
+      - run: cloudsmith push alpine typisttech/oss/alpine/any-version "dist/wpry_${VERSION}_linux_arm64.apk"
