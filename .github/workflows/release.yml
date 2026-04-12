@@ -1,4 +1,4 @@
-name: GoReleaser
+name: Release
 
 on:
   push:
@@ -61,9 +61,9 @@ jobs:
       - uses: cloudsmith-io/cloudsmith-cli-action@18665afcce9f859312b61989671af9af7402e4fb # v2.0.2
         with:
           api-key: ${{ secrets.CLOUDSMITH_API_KEY_TASTENDRUCK }}
-      - run: echo "VERSION=${TAG#v}" >> $GITHUB_ENV
+      - run: echo "VERSION=${TAG#v}" >> "$GITHUB_ENV"
         env:
-          TAG=${{ github.ref_name }}
+          TAG: ${{ github.ref_name }}
       - run: cloudsmith push deb typisttech/oss/any-distro/any-version "./dist/wpry_${VERSION}_linux_amd64.deb"
       - run: cloudsmith push deb typisttech/oss/any-distro/any-version "./dist/wpry_${VERSION}_linux_arm64.deb"
       - run: cloudsmith push apk typisttech/oss/alpine/any-version "./dist/wpry_${VERSION}_linux_amd64.apk"
