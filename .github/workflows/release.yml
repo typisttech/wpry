@@ -9,7 +9,10 @@ jobs:
   goreleaser:
     runs-on: ubuntu-latest
     permissions:
+      # For GoReleaser
       contents: write
+      # For release drafter
+      pull-requests: read
       # For actions/attest
       id-token: write
       attestations: write
@@ -45,9 +48,6 @@ jobs:
         with:
           subject-checksums: ./dist/checksums.txt
 
-  release-drafter:
-    uses: typisttech/.github/.github/workflows/release-drafter.yml@872d5345c254c6f8d65f318e5bffa74d7d0192e2 # v5.0.1
-    needs: goreleaser
-    permissions:
-      contents: write
-      pull-requests: read
+      - uses: release-drafter/release-drafter@5de93583980a40bd78603b6dfdcda5b4df377b32 # v7.2.0
+        with:
+          tag: ${{ github.ref_name }}
