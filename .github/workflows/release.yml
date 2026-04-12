@@ -57,3 +57,9 @@ jobs:
       - uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4.1.0
         with:
           subject-checksums: ./dist/checksums.txt
+
+      - uses: cloudsmith-io/cloudsmith-cli-action@v2.0.2
+        with:
+          api-key: ${{ secrets.CLOUDSMITH_API_KEY_TASTENDRUCK }}
+      - run: cloudsmith push deb typisttech/oss/any-distro/any-version 'dist/*.deb'
+      - run: cloudsmith push deb typisttech/oss/any-distro/any-version 'dist/*.apk'
