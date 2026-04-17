@@ -41,11 +41,11 @@
 - Parse unzipped plugin and theme directories
 - Parse plugin and theme zip archives containing (CLI only)
 - Normalize CR and CRLF line endings
-- Apply best-effort encoding fallback before header parsing
+- Apply best-effort encoding fallback before header parsing   
   Heuristics (in order):
-    1. If input is already valid UTF-8, return it (strip UTF-8 BOM if present)
-    2. Check for UTF-32 BOMs (BE/LE) and decode when present
-    3. Check for UTF-16 BOMs (BE/LE) and decode when present
+    1. Try UTF-8
+    2. Check for UTF-32 BOMs (BE/LE)
+    3. Check for UTF-16 BOMs (BE/LE)
     4. Try Windows-1252
     5. Try ISO-8859-1
 
