@@ -1,6 +1,8 @@
-# Capability: encoding
+# encoding Specification
 
-Purpose: Best-effort conversion of common legacy encodings to UTF-8 for internal parsing.
+## Purpose
+
+Best-effort conversion of common legacy encodings to UTF-8 for internal parsing.
 
 ## Requirements
 
@@ -14,18 +16,22 @@ The system SHALL provide an internal helper `convertToUTF8([]byte) []byte` that 
 - If all decoding attempts fail, return the original bytes unchanged.
 
 #### Scenario: UTF-8 input preserved
+
 - **WHEN** `convertToUTF8` is given bytes that are valid UTF-8
 - **THEN** it SHALL return the original bytes unchanged
 
 #### Scenario: UTF-16/32 BOM decoding
+
 - **WHEN** `convertToUTF8` is given bytes beginning with a UTF-16 or UTF-32 BOM
 - **THEN** it SHALL decode according to the BOM endianness and return valid UTF-8 bytes
 
 #### Scenario: Single-byte legacy decoding
+
 - **WHEN** `convertToUTF8` is given bytes that are not valid UTF-8 and have no BOM
 - **THEN** it SHALL attempt `Windows-1252` then `ISO-8859-1` decoding and return the first decoded result that is valid UTF-8 and passes sanity checks
 
 #### Scenario: Unrecognized encodings
+
 - **WHEN** `convertToUTF8` cannot decode the input with any supported decoder
 - **THEN** it SHALL return the original bytes unchanged
 
