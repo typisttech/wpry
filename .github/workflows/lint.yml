@@ -27,13 +27,11 @@ jobs:
       golangci-lint-version: v2.12 # Must be kept in sync with ../../mise.toml
 
   wait-for-all-lint:
-    if: ${{ cancelled() || contains(needs.*.result, 'cancelled') || contains(needs.*.result, 'failure') }}
+    if: cancelled() || contains(needs.*.result, 'cancelled') || contains(needs.*.result, 'failure')
     needs:
       - actions
       - go
     runs-on: ubuntu-latest
     steps:
       - name: Assert no required jobs were cancelled or failed
-        run: |
-          echo "::error::Required jobs have been cancelled or failed!"
-          exit 1
+        run: exit 1
