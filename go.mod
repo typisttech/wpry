@@ -2,7 +2,7 @@ module github.com/typisttech/wpry
 
 go 1.26.0
 
-toolchain go1.26.3
+toolchain go1.26.4
 
 require golang.org/x/text v0.37.0
 
@@ -13,6 +13,6 @@ require (
 )
 
 require (
-	golang.org/x/sys v0.44.0 // indirect
+	golang.org/x/sys v0.45.0 // indirect
 	golang.org/x/tools v0.45.0 // indirect
 )
