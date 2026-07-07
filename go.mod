@@ -4,7 +4,7 @@ go 1.26.0
 
 toolchain go1.26.4
 
-require golang.org/x/text v0.38.0
+require golang.org/x/text v0.39.0
 
 require (
 	github.com/google/go-cmp v0.7.0
@@ -14,5 +14,5 @@ require (
 
 require (
 	golang.org/x/sys v0.46.0 // indirect
-	golang.org/x/tools v0.46.0 // indirect
+	golang.org/x/tools v0.47.0 // indirect
 )
