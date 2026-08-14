@@ -3,7 +3,7 @@
 # WPry
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/typisttech/wpry.svg)](https://pkg.go.dev/github.com/typisttech/wpry)
-[![GitHub Release](https://img.shields.io/github/v/release/typisttech/wpry?style=flat-square&)](https://github.com/typisttech/wpry/releases/latest)
+[![GitHub Release](https://img.shields.io/github/v/release/typisttech/wpry)](https://github.com/typisttech/wpry/releases/latest)
 [![Test](https://github.com/typisttech/wpry/actions/workflows/test.yml/badge.svg)](https://github.com/typisttech/wpry/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/typisttech/wpry/graph/badge.svg?token=HD0PRS6E1A)](https://codecov.io/gh/typisttech/wpry)
 [![License](https://img.shields.io/github/license/typisttech/wpry.svg)](https://github.com/typisttech/wpry/blob/master/LICENSE)
