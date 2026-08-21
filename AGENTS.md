@@ -1,9 +1,5 @@
 # WPry
 
-## Toolchain
-- `go.mod` pins Go `1.26.2`. The code intentionally uses newer stdlib/testing features (`sync.WaitGroup.Go`, `testing/synctest`, `os.OpenRoot`, `json:",omitzero"`); do not treat those as compatibility bugs.
-- `mise.toml` pins `golangci-lint` `2.11`; run lint as `golangci-lint run` and formatting as `golangci-lint fmt`.
-
 ## Layout
 - Root package `github.com/typisttech/wpry` is the library: header parsing, encoding normalization, and `fs.FS` helpers.
 - `cmd/wpry` is the CLI. It races plugin and theme parsing for files, directories, and zip archives, then returns the first successful result. If both parses could succeed, the winner is intentionally nondeterministic.
