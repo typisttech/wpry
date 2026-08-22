@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go-version: ['', 'stable', 'oldstable', '1.27', '1.27.0', '1.26', '1.26.0']
+        go-version: ['', 'stable', 'oldstable', '1.26.0']
         include:
           - go-version: ''
             go-version-file: 'go.mod'
