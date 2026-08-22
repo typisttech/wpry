@@ -18,6 +18,7 @@ permissions:
 
 jobs:
   test:
+    name: "test (${{ matrix.go-version || matrix.go-version-file }})"
     runs-on: ubuntu-latest
     strategy:
       matrix:
