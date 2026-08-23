@@ -15,6 +15,3 @@
 - CLI script tests live in `cmd/wpry/testdata/script/*.txt` and the zip scenarios shell out to `zip`.
 - Preserve fixture line endings in `testdata/`; `.editorconfig` forces CR and CRLF for specific parser fixtures.
 - `.golangci.yml` uses strict `depguard`: non-test code is limited to stdlib, `golang.org/x`, `github.com/spf13/afero`, and this module. Tests must not add `testify`; use stdlib or `github.com/google/go-cmp/cmp`.
-
-## Specs
-- If behavior is unclear, consult current specs in `openspec/specs/*/spec.md`. Files under `openspec/changes/archive/` are historical context, not the source of truth.
