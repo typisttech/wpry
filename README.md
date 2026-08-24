@@ -39,10 +39,9 @@
 - Parse WordPress plugin headers from PHP files
 - Parse WordPress theme headers from `style.css`
 - Parse unzipped plugin and theme directories
-- Parse plugin and theme zip archives containing (CLI only)
+- Parse plugin and theme zip archives (CLI only)
 - Normalize CR and CRLF line endings
-- Apply best-effort encoding fallback before header parsing
-  Heuristics (in order):
+- Apply best-effort decoding (in order):
     1. If input is already valid UTF-8, return it (strip UTF-8 BOM if present)
     2. Check for UTF-32 BOMs (BE/LE) and decode when present
     3. Check for UTF-16 BOMs (BE/LE) and decode when present
