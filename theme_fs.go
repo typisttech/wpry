@@ -24,7 +24,7 @@ func ParseThemeFS(ctx context.Context, fsys fs.FS) (Theme, string, error) {
 
 		ents, err := fs.ReadDir(fsys, ".")
 		if err != nil {
-			out <- result{err: fmt.Errorf("reading directory: %w", err)}
+			out <- result{err: fmt.Errorf("reading directory: %v", err)}
 			return
 		}
 
@@ -46,7 +46,7 @@ func ParseThemeFS(ctx context.Context, fsys fs.FS) (Theme, string, error) {
 
 		f, err := fsys.Open(name)
 		if err != nil {
-			out <- result{err: fmt.Errorf("opening %s: %w", name, err)}
+			out <- result{err: fmt.Errorf("opening %s: %v", name, err)}
 			return
 		}
 		defer f.Close()

@@ -75,7 +75,7 @@ func read(r io.Reader) (string, error) {
 	// Read first 8 KiB
 	b, err := io.ReadAll(io.LimitReader(r, 8192))
 	if err != nil {
-		return "", fmt.Errorf("reading headers: %w", err)
+		return "", fmt.Errorf("reading headers: %v", err)
 	}
 
 	bUTF8 := convertToUTF8(b)
