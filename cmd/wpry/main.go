@@ -56,7 +56,7 @@ func run(ctx context.Context, args []string, stdout, stderr io.Writer) error {
 		case filepath.Ext(path) == ".zip":
 			fsys, cleanup, err := openZipFS(path)
 			if err != nil {
-				res = result{Err: fmt.Errorf("invalid zip: %v", err)}
+				res = result{Err: fmt.Errorf("invalid zip: %w", err)}
 				break
 			}
 			defer func() { _ = cleanup() }()

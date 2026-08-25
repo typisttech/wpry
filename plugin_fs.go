@@ -110,7 +110,6 @@ func ParsePluginFS(ctx context.Context, fsys fs.FS, opts ...ParseOption) (Plugin
 					if err != nil {
 						continue
 					}
-					defer f.Close()
 
 					p, err := ParsePlugin(f)
 					// Immediately close the file to free up resources to
