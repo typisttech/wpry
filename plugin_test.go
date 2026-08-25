@@ -14,6 +14,12 @@ import (
 	"github.com/google/go-cmp/cmp/cmpopts"
 )
 
+type errReader struct{ err error }
+
+func (e errReader) Read([]byte) (int, error) {
+	return 0, e.err
+}
+
 //go:embed testdata
 var testdata embed.FS
 
@@ -270,6 +276,21 @@ func TestParsePlugin(t *testing.T) {
 				}
 			})
 		}
+	}
+}
+
+func TestParsePlugin_ReadError(t *testing.T) {
+	t.Parallel()
+
+	wantErr := errors.New("boom")
+
+	_, err := ParsePlugin(errReader{err: wantErr})
+	if err == nil {
+		t.Fatal("ParsePlugin() unexpected success")
+	}
+
+	if !errors.Is(err, wantErr) {
+		t.Fatalf("ParsePlugin() error = %v, want wrapped %v", err, wantErr)
 	}
 }
 

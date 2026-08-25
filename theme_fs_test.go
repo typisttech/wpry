@@ -141,3 +141,18 @@ func TestParseThemeFS_Cancellation(t *testing.T) {
 		}
 	})
 }
+
+func TestParseThemeFS_ReadDirError(t *testing.T) {
+	t.Parallel()
+
+	wantErr := errors.New("boom")
+
+	_, _, err := ParseThemeFS(t.Context(), errReadDirFS{err: wantErr})
+	if err == nil {
+		t.Fatal("ParseThemeFS() unexpected success")
+	}
+
+	if !errors.Is(err, wantErr) {
+		t.Fatalf("ParseThemeFS() error = %v, want wrapped %v", err, wantErr)
+	}
+}
