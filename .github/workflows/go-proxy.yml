@@ -1,14 +1,15 @@
 name: Go Proxy
 
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - main
-    tags:
-      - "*"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}-${{ github.sha }}
+  cancel-in-progress: true
 
 permissions: {}
 
 jobs:
   go:
-    uses: typisttech/.github/.github/workflows/go-proxy.yml@f5f58e1acfcb05820612eb7edc25ed0eeabc625d # v6.2.0
+    uses: typisttech/.github/.github/workflows/go-proxy.yml@ba4e7de660323116418d8f16ee100399c51773e9 # v9.0.0
