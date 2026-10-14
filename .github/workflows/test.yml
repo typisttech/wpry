@@ -23,7 +23,6 @@ jobs:
     strategy:
       matrix:
         go-version:
-          - ''
           - stable
           - oldstable
           - '1.27.0'
