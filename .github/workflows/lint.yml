@@ -13,14 +13,21 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}-${{ github.event.pull_request.number || github.sha }}
   cancel-in-progress: true
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   actions:
+    permissions:
+      security-events: write
+      contents: read
+      actions: read
     uses: typisttech/.github/.github/workflows/lint-actions.yml@ba4e7de660323116418d8f16ee100399c51773e9 # v9.0.0
 
   go:
+    permissions:
+      security-events: write
+      contents: read
+      actions: read
     uses: typisttech/.github/.github/workflows/lint-go.yml@ba4e7de660323116418d8f16ee100399c51773e9 # v9.0.0
     with:
       golangci-lint: true
@@ -31,7 +38,7 @@ jobs:
     needs:
       - actions
       - go
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - name: Assert no required jobs were cancelled or failed
         run: exit 1

@@ -1,11 +1,12 @@
 name: Go Proxy
 
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - main
-    tags:
-      - "*"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}-${{ github.sha }}
+  cancel-in-progress: true
 
 permissions: {}
 

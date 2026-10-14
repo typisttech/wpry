@@ -9,14 +9,12 @@ permissions: {}
 
 jobs:
   release-drafter:
-    runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: read
-    steps:
-      - uses: release-drafter/release-drafter@978bb0b30c5ee8cdd332ced253758157150d43f0 # v7.10.0
-        with:
-          tag: ${{ github.ref_name }}
+    uses: typisttech/.github/.github/workflows/release-drafter.yml@ba4e7de660323116418d8f16ee100399c51773e9 # v9.0.0
+    with:
+      tag: ${{ github.ref_name }}
 
   goreleaser:
     runs-on: ubuntu-latest

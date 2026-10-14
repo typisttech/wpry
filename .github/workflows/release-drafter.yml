@@ -10,10 +10,11 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true
 
-permissions:
-  contents: write
-  pull-requests: read
+permissions: {}
 
 jobs:
   release-drafter:
+    permissions:
+      contents: write
+      pull-requests: read
     uses: typisttech/.github/.github/workflows/release-drafter.yml@ba4e7de660323116418d8f16ee100399c51773e9 # v9.0.0
