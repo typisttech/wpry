@@ -19,7 +19,7 @@ updates:
     groups:
       typisttech-dot-github:
         patterns:
-          - "typisttech/.github*"
+          - "typisttech/*"
       github-actions-dependencies:
         group-by: dependency-name
     open-pull-requests-limit: 20
