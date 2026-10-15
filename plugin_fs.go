@@ -32,7 +32,11 @@ func WithMaxWorkers(n int) ParseOption {
 // parse each file as a WordPress plugin main file. The first successfully
 // parsed [Plugin] and its path are returned. Parsing is performed concurrently
 // using worker goroutines.
-func ParsePluginFS(ctx context.Context, fsys fs.FS, opts ...ParseOption) (Plugin, string, error) { //nolint:cyclop
+func ParsePluginFS( //nolint:cyclop,gocognit,gocyclo
+	ctx context.Context,
+	fsys fs.FS,
+	opts ...ParseOption,
+) (Plugin, string, error) {
 	var po parseOptions
 	for _, opt := range opts {
 		opt(&po)

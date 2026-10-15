@@ -16,11 +16,11 @@ import (
 
 type errReadDirFS struct{ err error }
 
-func (e errReadDirFS) ReadDir(name string) ([]fs.DirEntry, error) {
+func (e errReadDirFS) ReadDir(_ string) ([]fs.DirEntry, error) {
 	return nil, e.err
 }
 
-func (e errReadDirFS) Open(name string) (fs.File, error) {
+func (e errReadDirFS) Open(_ string) (fs.File, error) {
 	return nil, fs.ErrNotExist
 }
 
