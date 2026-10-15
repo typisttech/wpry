@@ -22,3 +22,4 @@ updates:
           - 'typisttech/\.github/**/*'
       github-actions-dependencies:
         group-by: dependency-name
+    open-pull-requests-limit: 20
