@@ -19,6 +19,6 @@ updates:
     groups:
       typisttech-resuable:
         patterns:
-          - "typisttech/.github/*"
+          - "typisttech/.github/**/*"
       github-actions-dependencies:
         group-by: dependency-name
