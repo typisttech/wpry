@@ -17,7 +17,8 @@ updates:
       exclude:
         - "typisttech/*"
     groups:
-      typisttech:
+      typisttech-resuable:
         patterns:
-          - "typisttech/*"
-
+          - "typisttech/.github/*"
+      github-actions-dependencies:
+        group-by: dependency-name
