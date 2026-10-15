@@ -15,11 +15,12 @@ updates:
     cooldown:
       default-days: 3
       exclude:
-        - "typisttech/*"
+        - typisttech/*
     groups:
       typisttech-dot-github:
         patterns:
           - typisttech/.github/**/*
       github-actions-dependencies:
         group-by: dependency-name
-    open-pull-requests-limit: 20
+        exclude-patterns:
+          - typisttech/.github/**/* 
