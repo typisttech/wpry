@@ -23,4 +23,4 @@ updates:
       github-actions-dependencies:
         group-by: dependency-name
         exclude-patterns:
-          - typisttech/.github/**/* 
+          - typisttech/.github/**/*
