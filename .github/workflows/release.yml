@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - "*"
+      - '*'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
@@ -110,15 +110,15 @@ jobs:
             TAG: ${{ github.ref_name }}
 
       - parallel:
-        - run: cloudsmith push deb typisttech/oss/any-distro/any-version "dist/wpry_${VERSION}_linux_amd64.deb"
+        - run: cloudsmith push deb typisttech/oss/any-distro/any-version "wpry_${VERSION}_linux_amd64.deb"
           env:
             VERSION: ${{ steps.strip-leading-v.outputs.version }}
-        - run: cloudsmith push deb typisttech/oss/any-distro/any-version "dist/wpry_${VERSION}_linux_arm64.deb"
+        - run: cloudsmith push deb typisttech/oss/any-distro/any-version "wpry_${VERSION}_linux_arm64.deb"
           env:
             VERSION: ${{ steps.strip-leading-v.outputs.version }}
-        - run: cloudsmith push alpine typisttech/oss/alpine/any-version "dist/wpry_${VERSION}_linux_amd64.apk"
+        - run: cloudsmith push alpine typisttech/oss/alpine/any-version "wpry_${VERSION}_linux_amd64.apk"
           env:
             VERSION: ${{ steps.strip-leading-v.outputs.version }}
-        - run: cloudsmith push alpine typisttech/oss/alpine/any-version "dist/wpry_${VERSION}_linux_arm64.apk"
+        - run: cloudsmith push alpine typisttech/oss/alpine/any-version "wpry_${VERSION}_linux_arm64.apk"
           env:
             VERSION: ${{ steps.strip-leading-v.outputs.version }}
