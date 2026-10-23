@@ -52,9 +52,9 @@ homebrew_casks:
       Parses WordPress plugin and theme headers
     hooks:
       post:
-        install: |
-          if OS.mac?
-            system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/wpry"]
+        install_steps: |
+          on_macos do
+            run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{ .StagedPath }}/wpry"]
           end
     repository:
       owner: typisttech
